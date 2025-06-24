@@ -399,7 +399,7 @@ extension CUINamedImage {
         let subtype = self.subtype().name
 
         // Scale
-        let scale = self.scale>1 ? "@\(Int(self.scale))x" : ""
+//        let scale = self.scale>1 ? "@\(Int(self.scale))x" : ""
 
         // Idiom
         let idiom = self.idiom().name
@@ -408,7 +408,7 @@ extension CUINamedImage {
         let fileExtension = acFileExtension
 
         //  AppIcon76x76@2x~ipad.png
-        return "\(self.name)\(size)\(graphics)\(memory)\(sizeClassSuffix)\(subtype)\(scale)\(idiom).\(fileExtension)"
+        return "\(self.name)\(size)\(graphics)\(memory)\(sizeClassSuffix)\(subtype)\(idiom).\(fileExtension)"
     }
 }
 
