@@ -45,7 +45,7 @@ struct AssetsCatalog {
         var swiftArray = [ImageSet]()
         for string in array {
             swiftArray.append(imageSet(withName: String(string)))
-        }        
+        }
         return swiftArray
     }
 
@@ -88,11 +88,11 @@ struct AssetsCatalog {
 
 extension AssetsCatalog {
     func performOperation(operation: Operation) throws {
-        try operation.read(catalg: self)
+        try operation.read(catalog: self)
     }
 
     func performOperations(operations: [Operation]) throws {
-        let compundOperation = CompoundOperation(operations: operations)
-        try performOperation(operation: compundOperation)
+        let compoundOperation = CompoundOperation(operations: operations)
+        try performOperation(operation: compoundOperation)
     }
 }

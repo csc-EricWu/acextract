@@ -74,12 +74,12 @@ extension CUIResizingMode: InformationPrintable { }
 extension CUIImageType: InformationPrintable { }
 extension CUIGraphicalClass: InformationPrintable {
     func printWithLabel(label: String) {
-        
+
     }
 }
 extension CUIMemoryClass: InformationPrintable {
     func printWithLabel(label: String) {
-        
+
     }
 }
 
@@ -94,9 +94,9 @@ struct PrintInformationOperation: Operation {
         case VeryVeryVerbose
     }
 
-    func read(catalg: AssetsCatalog) {
-        print("Assets catalog: \(catalg.filePath)")
-        for imageSet in catalg.imageSets {
+    func read(catalog: AssetsCatalog) {
+        print("Assets catalog: \(catalog.filePath)")
+        for imageSet in catalog.imageSets {
             printImageSetData(imageSet: imageSet)
         }
     }

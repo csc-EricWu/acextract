@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,7 @@
 		961427121D1F1186005831AA /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961427111D1F1186005831AA /* Assets.swift */; };
 		961DEFE21D0DDD2F002AD0CC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961DEFE01D0DDD2F002AD0CC /* Interface.storyboard */; };
 		961DEFE41D0DDD2F002AD0CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961DEFE31D0DDD2F002AD0CC /* Assets.xcassets */; };
-		961DEFEB1D0DDD2F002AD0CC /* watchTestApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 961DEFEA1D0DDD2F002AD0CC /* watchTestApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		961DEFEB1D0DDD2F002AD0CC /* watchTestApp Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 961DEFEA1D0DDD2F002AD0CC /* watchTestApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		961DEFF01D0DDD2F002AD0CC /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DEFEF1D0DDD2F002AD0CC /* InterfaceController.swift */; };
 		961DEFF21D0DDD2F002AD0CC /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DEFF11D0DDD2F002AD0CC /* ExtensionDelegate.swift */; };
 		961DEFF41D0DDD2F002AD0CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961DEFF31D0DDD2F002AD0CC /* Assets.xcassets */; };
@@ -60,19 +60,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		960CEF8B1A3F7BF700F0B156 /* PBXContainerItemProxy */ = {
+		07AC55A42E0FF4E300BBDAF0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 960CEF861A3F7BF700F0B156 /* CommandLine.xcodeproj */;
+			containerPortal = 960CEF861A3F7BF700F0B156 /* CommandLineKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5D06884319674D7D00BBFAAC;
-			remoteInfo = CommandLine;
+			remoteInfo = CommandLineKit;
 		};
-		960CEF8D1A3F7BF700F0B156 /* PBXContainerItemProxy */ = {
+		07AC55A62E0FF4E300BBDAF0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 960CEF861A3F7BF700F0B156 /* CommandLine.xcodeproj */;
+			containerPortal = 960CEF861A3F7BF700F0B156 /* CommandLineKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5D06884E19674D7D00BBFAAC;
-			remoteInfo = CommandLineTests;
+			remoteInfo = CommandLineKitTests;
 		};
 		961DEFEC1D0DDD2F002AD0CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -91,15 +91,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		961DEFFC1D0DDD2F002AD0CC /* Embed App Extensions */ = {
+		961DEFFC1D0DDD2F002AD0CC /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				961DEFEB1D0DDD2F002AD0CC /* watchTestApp Extension.appex in Embed App Extensions */,
+				961DEFEB1D0DDD2F002AD0CC /* watchTestApp Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		966A50301A3DEBE0002C814F /* CopyFiles */ = {
@@ -127,7 +127,7 @@
 /* Begin PBXFileReference section */
 		9603F7551D1719A4005EFB46 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		960594221D19D96C00325995 /* PrintInformationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintInformationOperation.swift; sourceTree = "<group>"; };
-		960CEF861A3F7BF700F0B156 /* CommandLine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommandLine.xcodeproj; path = CommandLine/CommandLine.xcodeproj; sourceTree = "<group>"; };
+		960CEF861A3F7BF700F0B156 /* CommandLineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommandLineKit.xcodeproj; path = CommandLine/CommandLineKit.xcodeproj; sourceTree = "<group>"; };
 		960CEF901A3F7C2C00F0B156 /* CommandLineTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandLineTool.swift; path = CommandLine/CommandLine/CommandLineTool.swift; sourceTree = SOURCE_ROOT; };
 		960CEF911A3F7C2C00F0B156 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Option.swift; path = CommandLine/CommandLine/Option.swift; sourceTree = SOURCE_ROOT; };
 		960CEF921A3F7C2C00F0B156 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = CommandLine/CommandLine/StringExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -231,6 +231,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07AC55A02E0FF4E300BBDAF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07AC55A52E0FF4E300BBDAF0 /* CommandLineKit.framework */,
+				07AC55A72E0FF4E300BBDAF0 /* CommandLineKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		960594271D19D97000325995 /* Operation */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,15 +255,6 @@
 				966A50511A3E13B2002C814F /* CoreUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		960CEF871A3F7BF700F0B156 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				960CEF8C1A3F7BF700F0B156 /* CommandLine.framework */,
-				960CEF8E1A3F7BF700F0B156 /* CommandLineTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		960CEF8F1A3F7C2000F0B156 /* CommandLine */ = {
@@ -311,7 +311,7 @@
 				961DEFEE1D0DDD2F002AD0CC /* watchTestApp Extension */,
 				960CEF851A3F7BEB00F0B156 /* Frameworks */,
 				966A50331A3DEBE0002C814F /* Products */,
-				960CEF861A3F7BF700F0B156 /* CommandLine.xcodeproj */,
+				960CEF861A3F7BF700F0B156 /* CommandLineKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -438,7 +438,7 @@
 			buildConfigurationList = 961DEFFD1D0DDD2F002AD0CC /* Build configuration list for PBXNativeTarget "watchTestApp" */;
 			buildPhases = (
 				961DEFDC1D0DDD2F002AD0CC /* Resources */,
-				961DEFFC1D0DDD2F002AD0CC /* Embed App Extensions */,
+				961DEFFC1D0DDD2F002AD0CC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -561,9 +561,10 @@
 		966A502A1A3DEBE0002C814F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1640;
 				ORGANIZATIONNAME = "Bartosz Janda";
 				TargetAttributes = {
 					961DEFDD1D0DDD2F002AD0CC = {
@@ -602,8 +603,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 960CEF871A3F7BF700F0B156 /* Products */;
-					ProjectRef = 960CEF861A3F7BF700F0B156 /* CommandLine.xcodeproj */;
+					ProductGroup = 07AC55A02E0FF4E300BBDAF0 /* Products */;
+					ProjectRef = 960CEF861A3F7BF700F0B156 /* CommandLineKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -620,18 +621,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		960CEF8C1A3F7BF700F0B156 /* CommandLine.framework */ = {
+		07AC55A52E0FF4E300BBDAF0 /* CommandLineKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = CommandLine.framework;
-			remoteRef = 960CEF8B1A3F7BF700F0B156 /* PBXContainerItemProxy */;
+			path = CommandLineKit.framework;
+			remoteRef = 07AC55A42E0FF4E300BBDAF0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		960CEF8E1A3F7BF700F0B156 /* CommandLineTests.xctest */ = {
+		07AC55A72E0FF4E300BBDAF0 /* CommandLineKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = CommandLineTests.xctest;
-			remoteRef = 960CEF8D1A3F7BF700F0B156 /* PBXContainerItemProxy */;
+			path = CommandLineKitTests.xctest;
+			remoteRef = 07AC55A62E0FF4E300BBDAF0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -853,7 +854,12 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "watchTestApp Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjanda.iOSTestApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -871,7 +877,12 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "watchTestApp Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjanda.iOSTestApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -886,13 +897,13 @@
 		961DEFFE1D0DDD2F002AD0CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = watchTestApp_Extension;
 				INFOPLIST_FILE = watchTestApp/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjanda.iOSTestApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -906,13 +917,13 @@
 		961DEFFF1D0DDD2F002AD0CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = watchTestApp_Extension;
 				INFOPLIST_FILE = watchTestApp/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjanda.iOSTestApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -946,12 +957,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -969,8 +982,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -1001,12 +1014,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1018,8 +1033,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1030,10 +1045,12 @@
 		966A503A1A3DEBE0002C814F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "acextract/acextract-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1043,10 +1060,12 @@
 		966A503B1A3DEBE0002C814F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "acextract/acextract-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1056,14 +1075,17 @@
 		968FAADB1A48C1500083A943 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = iOSTestApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bjanda.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1075,10 +1097,13 @@
 		968FAADC1A48C1500083A943 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iOSTestApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bjanda.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1093,12 +1118,17 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = macTestApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bjanda.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1110,8 +1140,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = macTestApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bjanda.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1128,7 +1163,11 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = tvTestApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjanda.tvTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1147,7 +1186,11 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = tvTestApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjanda.tvTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1163,6 +1206,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1170,8 +1214,12 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = acextractTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjanda.acextractTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "acextractTests/acextractTests-Bridging-Header.h";
@@ -1186,14 +1234,19 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = acextractTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bjanda.acextractTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "acextractTests/acextractTests-Bridging-Header.h";
