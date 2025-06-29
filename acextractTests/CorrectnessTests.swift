@@ -15,38 +15,38 @@ class CorrectnessTests: XCTestCase {
 
     // MARK: Test correctness
     func testIOSCorrectness() {
-        printOperation.read(assetsContainer.iOS)
+        printOperation.read(catalog: assetsContainer.iOS)
     }
 
     func testIPadCorrectness() {
-        printOperation.read(assetsContainer.iPad)
+        printOperation.read(catalog: assetsContainer.iPad)
     }
 
     func testIPhoneCorrectness() {
-        printOperation.read(assetsContainer.iPhone)
+        printOperation.read(catalog: assetsContainer.iPhone)
     }
 
     func testMacCorrectness() {
-        printOperation.read(assetsContainer.macOS)
+        printOperation.read(catalog: assetsContainer.macOS)
     }
 
     func testTVCorrectness() {
-        printOperation.read(assetsContainer.tvOS)
+        printOperation.read(catalog: assetsContainer.tvOS)
     }
 
     func testWatchCorrectness() {
-        printOperation.read(assetsContainer.watchOS)
+        printOperation.read(catalog: assetsContainer.watchOS)
     }
 
     func testPrintInformationName() {
-        PrintInformationOperation(verbose: .Name).read(assetsContainer.iOS)
+        PrintInformationOperation(verbose: .Name).read(catalog: assetsContainer.iOS)
     }
 
     func testPrintInformationVerbose() {
-        PrintInformationOperation(verbose: .Verbose).read(assetsContainer.iOS)
+        PrintInformationOperation(verbose: .Verbose).read(catalog: assetsContainer.iOS)
     }
 
     func testPrintInformationVeryVerbose() {
-        PrintInformationOperation(verbose: .VeryVerbose).read(assetsContainer.iOS)
+        PrintInformationOperation(verbose: .VeryVerbose).read(catalog: assetsContainer.iOS)
     }
 }

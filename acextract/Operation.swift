@@ -71,8 +71,8 @@ struct ExtractOperation: Operation {
         // For every image set and every named image.
         for imageSet in catalog.imageSets {
             for namedImage in imageSet.namedImages {
-                // Save image to file.
-                extractNamedImage(namedImage: namedImage)
+                // Save image to file with recursive folder structure support
+                extractNamedImage(namedImage: namedImage, imageSetName: imageSet.name)
             }
         }
     }
@@ -86,26 +86,71 @@ struct ExtractOperation: Operation {
     private func checkAndCreateFolder() throws {
         // Check if directory exists at given path and it is directory.
         var isDirectory: ObjCBool = false
-        if FileManager.default.fileExists(atPath: outputPath, isDirectory: &isDirectory) && !(isDirectory.boolValue) {
-            throw ExtractOperationError.OutputPathIsNotDirectory
+        let exists = FileManager.default.fileExists(atPath: outputPath, isDirectory: &isDirectory)
+
+        if exists {
+            // Path exists, check if it's a directory
+            if !isDirectory.boolValue {
+                throw ExtractOperationError.OutputPathIsNotDirectory
+            }
+            // Directory already exists, nothing to do
         } else {
+            // Path doesn't exist, create directory
             try FileManager.default.createDirectory(atPath: outputPath, withIntermediateDirectories: true, attributes: nil)
         }
     }
 
     /**
-     Extract image to file.
+     Extract image to file with recursive folder structure support.
 
      - parameter namedImage: Named image to save.
+     - parameter imageSetName: Name of the image set (may contain path separators).
      */
-    private func extractNamedImage(namedImage: CUINamedImage) {
-        let filePath = (outputPath as NSString).appendingPathComponent(namedImage.acImageName)
-        print("Extracting: \(namedImage.acImageName)", terminator: "")
+    private func extractNamedImage(namedImage: CUINamedImage, imageSetName: String) {
+        // Create folder structure based on image set name
+        let folderPath = createFolderStructure(for: imageSetName)
+        // Get the filename without path - extract the last component from acImageName
+        let fullImageName = namedImage.acImageName
+        let fileName = (fullImageName as NSString).lastPathComponent
+        let filePath = (folderPath as NSString).appendingPathComponent(fileName)
+        print("Extracting: \(imageSetName)/\(fileName)", terminator: "")
         do {
             try namedImage.acSaveAtPath(filePath: filePath)
             print(" \(escapeSeq+boldSeq)OK\(escapeSeq+resetSeq)")
         } catch {
             print(" \(escapeSeq+boldSeq)\(escapeSeq+redColorSeq)FAILED\(escapeSeq+resetSeq) \(error)")
+        }
+    }
+
+    /**
+     Create folder structure based on image set name.
+
+     - parameter imageSetName: Name of the image set (may contain path separators).
+     - returns: Full path to the folder where the image should be saved.
+     */
+    private func createFolderStructure(for imageSetName: String) -> String {
+        // Split the image set name by path separators to create folder structure
+        let pathComponents = imageSetName.components(separatedBy: "/")
+
+        if pathComponents.count > 1 {
+            // Create nested folder structure
+            // For paths like "Shortcuts/SavedMessages/Shortcuts/SavedMessages",
+            // we want to create folder "Shortcuts/SavedMessages/Shortcuts/"
+            // and save file "SavedMessages@2x.png" in it
+            let folderComponents = pathComponents.dropLast() // Remove the last component (filename)
+            let folderPath = (outputPath as NSString).appendingPathComponent(folderComponents.joined(separator: "/"))
+
+            // Create the directory structure
+            do {
+                try FileManager.default.createDirectory(atPath: folderPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("DEBUG: Failed to create directory \(folderPath): \(error)")
+            }
+
+            return folderPath
+        } else {
+            // No nested structure, use output path directly
+            return outputPath
         }
     }
 }
@@ -130,16 +175,23 @@ private extension CUINamedImage {
 
     func acSaveImage(filePath: String) throws {
         let filePathURL = NSURL(fileURLWithPath: filePath)
+
+        // Check if we have image data
         guard let cgImage = self._rendition().unslicedImage()?.takeUnretainedValue() else {
+            print("DEBUG: No unsliced image data available for \(filePath)")
             throw ExtractOperationError.CannotSaveImage
         }
+
+        // Check if we can create destination
         guard let cgDestination = CGImageDestinationCreateWithURL(filePathURL, kUTTypePNG, 1, nil) else {
+            print("DEBUG: Cannot create image destination for \(filePath)")
             throw ExtractOperationError.CannotSaveImage
         }
 
         CGImageDestinationAddImage(cgDestination, cgImage, nil)
 
         if !CGImageDestinationFinalize(cgDestination) {
+            print("DEBUG: Cannot finalize image destination for \(filePath)")
             throw ExtractOperationError.CannotSaveImage
         }
     }

@@ -90,4 +90,55 @@ class AssetsCatalogTests: XCTestCase {
             XCTFail("Unknown exception \(error)")
         }
     }
+
+    func testAllImageNamesContainsNestedPaths() {
+        // Test with iOS assets catalog
+        let catalog = assetsContainer.iOS
+
+        // Get all image names
+        let allNames = catalog.catalog.allImageNames()
+
+        // Print all names to see the structure
+        print("All image names from iOS catalog:")
+        for name in allNames {
+            print("  \(name)")
+        }
+
+        // Check if any names contain path separators (indicating nested structure)
+        let namesWithPaths = allNames.filter { $0.contains("/") }
+
+        print("Names with path separators:")
+        for name in namesWithPaths {
+            print("  \(name)")
+        }
+
+        // Verify that we have some nested paths
+        XCTAssertGreaterThan(namesWithPaths.count, 0, "Should have some nested image paths")
+
+        // Check specific nested paths that we know exist
+        let expectedNestedPaths = [
+            "devices/mix/d_iphone_ipad_mac",
+            "devices/mix/d_iphone_ipad_mac_watch"
+        ]
+
+        for expectedPath in expectedNestedPaths {
+            XCTAssertTrue(allNames.contains(expectedPath), "Should contain nested path: \(expectedPath)")
+        }
+    }
+
+    func testImageSetWithNestedPath() {
+        let catalog = assetsContainer.iOS
+
+        // Test getting an image set with a nested path
+        let nestedImageSet = catalog.imageSet(withName: "devices/mix/d_iphone_ipad_mac")
+
+        XCTAssertEqual(nestedImageSet.name, "devices/mix/d_iphone_ipad_mac")
+        XCTAssertGreaterThan(nestedImageSet.namedImages.count, 0, "Should have images in nested image set")
+
+        // Print the images in this nested set
+        print("Images in nested set 'devices/mix/d_iphone_ipad_mac':")
+        for image in nestedImageSet.namedImages {
+            print("  \(image.acImageName)")
+        }
+    }
 }
