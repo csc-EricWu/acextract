@@ -37,6 +37,12 @@ struct ImageSet {
     }
 }
 
+extension ImageSet {
+    var containsAppStoreIcon: Bool {
+        return namedImages.contains { $0.acIsAppStoreIcon }
+    }
+}
+
 extension ImageSet: CustomStringConvertible {
     var description: String {
         return "\(name)"

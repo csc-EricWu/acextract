@@ -24,6 +24,8 @@
 //  SOFTWARE.
 
 import Foundation
+import ImageIO
+import UniformTypeIdentifiers
 
 // MARK: - Protocols
 protocol Operation {
@@ -68,11 +70,22 @@ struct ExtractOperation: Operation {
     func read(catalog: AssetsCatalog) throws {
         // Create output folder if needed
         try checkAndCreateFolder()
+        var appStoreIcons: [String] = []
         // For every image set and every named image.
         for imageSet in catalog.imageSets {
             for namedImage in imageSet.namedImages {
                 // Save image to file with recursive folder structure support
                 extractNamedImage(namedImage: namedImage, imageSetName: imageSet.name)
+                if namedImage.acIsAppStoreIcon {
+                    appStoreIcons.append("\(imageSet.name)/\(namedImage.acImageName)")
+                }
+            }
+        }
+        if appStoreIcons.isEmpty {
+            print("❌ App Store icon: not found")
+        } else {
+            for path in appStoreIcons {
+                print("✅ App Store icon: \(path)")
             }
         }
     }
@@ -113,7 +126,7 @@ struct ExtractOperation: Operation {
         let fullImageName = namedImage.acImageName
         let fileName = (fullImageName as NSString).lastPathComponent
         let filePath = (folderPath as NSString).appendingPathComponent(fileName)
-        print("Extracting: \(imageSetName)/\(fileName)", terminator: "")
+        print("Extracting: \(imageSetName)/\(fileName)\(namedImage.acAppStoreMarker)", terminator: "")
         do {
             try namedImage.acSaveAtPath(filePath: filePath)
             print(" \(escapeSeq+boldSeq)OK\(escapeSeq+resetSeq)")
@@ -183,7 +196,7 @@ private extension CUINamedImage {
         }
 
         // Check if we can create destination
-        guard let cgDestination = CGImageDestinationCreateWithURL(filePathURL, kUTTypePNG, 1, nil) else {
+        guard let cgDestination = CGImageDestinationCreateWithURL(filePathURL, UTType.png.identifier as CFString, 1, nil) else {
             print("DEBUG: Cannot create image destination for \(filePath)")
             throw ExtractOperationError.CannotSaveImage
         }

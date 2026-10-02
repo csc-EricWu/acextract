@@ -100,7 +100,9 @@ extension CUIDeviceIdiom: NameStringConvertible {
         case .iPhone: return "~iphone"
         case .iPad: return "~ipad"
         case .appleTV: return "~tv"
+        case .carPlay: return "~car"
         case .appleWatch: return "~watch"
+        case .marketing: return "~marketing"
         default: return ""
         }
     }
@@ -113,7 +115,9 @@ extension CUIDeviceIdiom: ValueCorrectness, IncorrectValueAssertion {
         case .iPhone: return rawValue == CUIDeviceIdiom.iPhone.rawValue
         case .iPad: return rawValue == CUIDeviceIdiom.iPad.rawValue
         case .appleTV: return rawValue == CUIDeviceIdiom.appleTV.rawValue
+        case .carPlay: return rawValue == CUIDeviceIdiom.carPlay.rawValue
         case .appleWatch: return rawValue == CUIDeviceIdiom.appleWatch.rawValue
+        case .marketing: return rawValue == CUIDeviceIdiom.marketing.rawValue
         default: return true
         }
     }
@@ -121,7 +125,7 @@ extension CUIDeviceIdiom: ValueCorrectness, IncorrectValueAssertion {
 
 extension CUIDeviceIdiom: AllValues {
     static var allValues: [CUIDeviceIdiom] {
-        return [.universal, .iPhone, .iPad, .appleTV, .appleWatch]
+        return [.universal, .iPhone, .iPad, .appleTV, .carPlay, .appleWatch, .marketing]
     }
 }
 
@@ -132,7 +136,9 @@ extension CUIDeviceIdiom: CustomStringConvertible {
         case .iPhone: return "iPhone"
         case .iPad: return "iPad"
         case .appleTV: return "AppleTV"
+        case .carPlay: return "CarPlay"
         case .appleWatch: return "AppleWatch"
+        case .marketing: return "Marketing"
         default: return ""
         }
     }
@@ -382,6 +388,48 @@ extension CUINamedImage {
             return true
         }
         return false
+    }
+
+    /// Bitmap pixel size. `size` is in points, so @2x 512pt is also 1024px.
+    var acPixelSize: CGSize {
+        if size.width > 0 && size.height > 0 {
+            return CGSize(width: size.width * scale, height: size.height * scale)
+        }
+        if let image = _rendition().unslicedImage()?.takeUnretainedValue() {
+            return CGSize(width: CGFloat(image.width), height: CGFloat(image.height))
+        }
+        return .zero
+    }
+
+    var acIs1024AppIconCandidate: Bool {
+        return acPixelSize.width == 1024 && acPixelSize.height == 1024 && scale == 1
+    }
+
+    /// Older catalogs put the App Store artwork on idiom `marketing` (ios-marketing).
+    var acIsMarketingAppStoreIcon: Bool {
+        return idiom() == .marketing && acIs1024AppIconCandidate
+    }
+
+    /**
+     Primary App Store icon.
+
+     Size alone is not enough: this catalog can contain many 1024 images
+     (alternate icons). Prefer:
+     1. idiom == marketing (legacy ios-marketing slot)
+     2. otherwise the primary app icon set, conventionally named `AppIcon`
+     */
+    var acIsAppStoreIcon: Bool {
+        guard acIs1024AppIconCandidate else {
+            return false
+        }
+        if acIsMarketingAppStoreIcon {
+            return true
+        }
+        return name == "AppIcon"
+    }
+
+    var acAppStoreMarker: String {
+        return acIsAppStoreIcon ? " ✅" : ""
     }
 
     fileprivate var acFileExtension: String {

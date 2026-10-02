@@ -107,19 +107,20 @@ struct PrintInformationOperation: Operation {
      - parameter imageSet: Image set.
      */
     private func printImageSetData(imageSet: ImageSet) {
+        let appStoreMarker = imageSet.containsAppStoreIcon ? " ✅" : ""
         switch verbose {
         case .Name:
-            print("\(imageSet.name)")
+            print("\(imageSet.name)\(appStoreMarker)")
         case .Verbose:
-            print("\(escapeSeq+boldSeq)\(imageSet.name)\(escapeSeq+resetSeq): \(imageSetData(imageSet: imageSet))")
+            print("\(escapeSeq+boldSeq)\(imageSet.name)\(escapeSeq+resetSeq)\(appStoreMarker): \(imageSetData(imageSet: imageSet))")
             _ = imageSetData(imageSet: imageSet)
         case .VeryVerbose:
-            print("\(escapeSeq+boldSeq)\(imageSet.name)\(escapeSeq+resetSeq):")
+            print("\(escapeSeq+boldSeq)\(imageSet.name)\(escapeSeq+resetSeq)\(appStoreMarker):")
             for namedImage in imageSet.namedImages {
                 printNamedImageShortData(namedImage: namedImage)
             }
         case .VeryVeryVerbose:
-            print("Name: \(escapeSeq+boldSeq)\(imageSet.name)\(escapeSeq+resetSeq)")
+            print("Name: \(escapeSeq+boldSeq)\(imageSet.name)\(escapeSeq+resetSeq)\(appStoreMarker)")
             for namedImage in imageSet.namedImages {
                 printNamedImageVerboseData(namedImage: namedImage)
             }
@@ -159,7 +160,7 @@ struct PrintInformationOperation: Operation {
      - parameter namedImage: Named image.
      */
     private func printNamedImageShortData(namedImage: CUINamedImage) {
-        print("  \(namedImage.acImageName)")
+        print("  \(namedImage.acImageName)\(namedImage.acAppStoreMarker)")
     }
 
     /**
@@ -181,6 +182,8 @@ struct PrintInformationOperation: Operation {
         // CUINamedLookup
         printProperty(label: "name", value: namedImage.name)
         printProperty(label: "renditionName", value: namedImage.renditionName())
+        printProperty(label: "pixel size", value: namedImage.acPixelSize)
+        printProperty(label: "is App Store icon", value: namedImage.acIsAppStoreIcon)
 
         // renditionKey() -> CUIRenditionKey
 //        printProperty("rendition key", value: namedImage.renditionKey())

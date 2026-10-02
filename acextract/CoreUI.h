@@ -44,7 +44,9 @@ typedef NS_ENUM(NSInteger, CUIDeviceIdiom) {
     CUIDeviceIdiomIPhone     = 1,
     CUIDeviceIdiomIPad       = 2,
     CUIDeviceIdiomAppleTV    = 3,
+    CUIDeviceIdiomCarPlay    = 4,
     CUIDeviceIdiomAppleWatch = 5,
+    CUIDeviceIdiomMarketing  = 6, // ios-marketing / App Store 1024
 };
 
 typedef NS_ENUM(NSUInteger, CUISubtype) {
